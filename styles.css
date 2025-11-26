@@ -2166,3 +2166,22 @@ input[type="date"] {
         font-size: clamp(0.75rem, 1.5vw, 0.85em) !important;
     }
 }
+/* === ปรับแต่งปุ่ม ตกลง ในช่องสแกนบาร์โค้ด === */
+#scan-barcode-form button {
+    background-color: #007bff !important; /* สีฟ้าสดใส */
+    color: white !important;              /* ตัวหนังสือสีขาว */
+    border: 1px solid #0056b3;            /* เส้นขอบสีฟ้าเข้มเพื่อให้ดูคมชัด */
+    border-radius: 6px;                   /* ขอบมนเล็กน้อย */
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* เงาเล็กน้อยให้ปุ่มดูลอย */
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#scan-barcode-form button:hover {
+    background-color: #0056b3 !important; /* สีฟ้าเข้มขึ้นเมื่อเอาเมาส์ชี้ */
+    transform: translateY(-1px);          /* ขยับขึ้นเล็กน้อยตอนชี้ */
+}
+
+#scan-barcode-form button:active {
+    transform: translateY(0);             /* ขยับกลับที่เดิมตอนกด */
+}

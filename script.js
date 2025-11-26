@@ -3525,7 +3525,7 @@ fillPages(){
         <div class="pos-layout">
             <div>
                 <form id="scan-barcode-form" style="margin-bottom: 10px; border: 2px solid var(--primary-color); padding: 10px; border-radius: 8px; background-color: #e3f2fd; max-width:none;">
-                    <label for="pos-barcode-input" style="font-weight:bold; font-size:1.1em; color:#007bff; text-align:left; display:block;">📷 สแกนบาร์โค้ดที่นี่:</label>
+                    <label for="pos-barcode-input" style="font-weight:bold; font-size:1.1em; color:#007bff; text-align:left; display:block;">สแกนบาร์โค้ดที่นี่:</label>
                     <div style="display:flex; gap:5px;">
                         <input type="text" id="pos-barcode-input" placeholder="คลิกแล้วยิงบาร์โค้ด..." autocomplete="off" style="font-size: 1.2em; text-align: center; flex-grow:1;">
                         <button type="submit" style="width:auto; padding:0 20px;">ตกลง</button>
