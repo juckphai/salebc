@@ -26,7 +26,7 @@
         }
 
         .main-wrapper {
-            max-width: 800px; 
+            max-width: 900px; 
             margin: 5px auto; /* ลด margin ด้านบน/ล่าง */
             background-color: var(--background-color);
             border: 2px solid var(--main-border-color); /* ✅ ใช้ตัวแปรและเพิ่มความหนา */
@@ -369,7 +369,7 @@
             grid-template-columns: 150px 1fr;
             gap: 10px; /* ลด gap */
             align-items: center;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto 10px auto; /* ลด margin */
             background-color: var(--background-color);
         }
@@ -649,7 +649,7 @@
             align-items: center;
             width: 100%;
             margin-top: 8px; /* ลด margin */
-            max-width: 600px;
+            max-width: 800px;
             background-color: var(--background-alt);
             padding: 10px; /* ลด padding */
             border-radius: 6px;
@@ -813,16 +813,29 @@
         
         /* === NEW: CSS for Date/Time Grouping (Desktop & General) === */
         #page-pos #add-to-cart-form .date-time-group {
-            display: flex;
-            gap: 3px; /* Spacing between date and time inputs */
-            grid-column: 2 / -1; /* Ensures it spans the full content column on desktop */
+            display: flex !important; /* บังคับใช้ Flexbox */
+            flex-direction: row !important; /* เรียงแนวนอนซ้ายไปขวา */
+            align-items: center !important; /* จัดกึ่งกลางแนวตั้ง */
+            gap: 5px !important; /* ระยะห่างระหว่างช่องวันที่กับเวลา */
+            grid-column: 2 / -1; /* ครอบคลุมพื้นที่คอลัมน์ขวา */
+            width: 100% !important; /* กว้างเต็มพื้นที่ */
         }
         #page-pos #add-to-cart-form .date-time-group input {
-            flex-grow: 1;
-            min-width: 0;
-            font-size: clamp(0.55rem, 1.0vw, 0.9em); 
-            padding: 6px 7px; /* ลด padding */
+            flex: 1 1 0 !important; /* แบ่งพื้นที่เท่ากัน 50/50 และย่อขยายได้ */
+            width: 0 !important; /* แก้บั๊ก Flexbox ไม่ยอมหดในบาง Browser */
+            min-width: 0 !important; /* อนุญาตให้หดเล็กสุดได้ */
+            font-size: clamp(0.75rem, 1vw, 0.9em) !important; /* ปรับขนาดตัวอักษร */
+            padding: 0 5px !important; /* ระยะห่างภายใน */
+            text-align: center !important; /* จัดตัวหนังสือกลางช่อง */
+            
+            /* บังคับโครงสร้างกล่อง */
+            height: 38px !important;  /* บังคับความสูงให้เท่ากันเป๊ะ */
+            line-height: normal !important;
+            margin: 0 !important; /* ลบระยะห่างภายนอกที่ไม่จำเป็น */
+            box-sizing: border-box !important; /* รวมขอบในความกว้าง/สูง */
         }
+
+
         /* === END NEW === */
 
 /* === START: ปรับปรุงฟอร์มรหัสผ่านสำรอง (User Request) === */
@@ -1137,14 +1150,29 @@
             }
             
             /* --- NEW: Mobile adjustment for Date/Time Grouping --- */
-            #page-pos #add-to-cart-form .date-time-group {
-                grid-column: 2 / -1; /* Make sure the date/time group spans the second column */
-                gap: 3px; /* ลด gap */
-            }
-            #page-pos #add-to-cart-form .date-time-group input {
-                padding: 6px 7px; /* ลด padding */
-                font-size: 0.75em; /* ลด font size */
-            }
+        #page-pos #add-to-cart-form .date-time-group {
+            display: flex !important; /* บังคับใช้ Flexbox */
+            flex-direction: row !important; /* เรียงแนวนอนซ้ายไปขวา */
+            align-items: center !important; /* จัดกึ่งกลางแนวตั้ง */
+            gap: 5px !important; /* ระยะห่างระหว่างช่องวันที่กับเวลา */
+            grid-column: 2 / -1; /* ครอบคลุมพื้นที่คอลัมน์ขวา */
+            width: 100% !important; /* กว้างเต็มพื้นที่ */
+        }
+        #page-pos #add-to-cart-form .date-time-group input {
+            flex: 1 1 0 !important; /* แบ่งพื้นที่เท่ากัน 50/50 และย่อขยายได้ */
+            width: 0 !important; /* แก้บั๊ก Flexbox ไม่ยอมหดในบาง Browser */
+            min-width: 0 !important; /* อนุญาตให้หดเล็กสุดได้ */
+            font-size: clamp(0.75rem, 1vw, 0.9em) !important; /* ปรับขนาดตัวอักษร */
+            padding: 0 5px !important; /* ระยะห่างภายใน */
+            text-align: center !important; /* จัดตัวหนังสือกลางช่อง */
+            
+            /* บังคับโครงสร้างกล่อง */
+            height: 38px !important;  /* บังคับความสูงให้เท่ากันเป๊ะ */
+            line-height: normal !important;
+            margin: 0 !important; /* ลบระยะห่างภายนอกที่ไม่จำเป็น */
+            box-sizing: border-box !important; /* รวมขอบในความกว้าง/สูง */
+        }
+
             /* --- END NEW --- */
 
             /* --- Cart Summary Compacting Rules --- */
@@ -1627,7 +1655,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px; /* ลด gap */
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto 15px auto; /* ลด margin */
     background-color: var(--background-alt);
     padding: 15px; /* ลด padding */
@@ -2087,18 +2115,73 @@ input[type="date"] {
 #report-filter-form select {
     width: 100% !important;
 }
+/* === FIXED: PRODUCT + QUANTITY ONE-LINE GROUP === */
+#page-pos #add-to-cart-form .product-quantity-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 3px !important;
+    width: 100% !important;
+
+    /* ❗ สำคัญที่สุด: บังคับให้กลุ่มนี้กินทั้งแถว ไม่ถูกบีบโดย Grid */
+    grid-column: 1 / -1 !important;
+
+    /* กันไม่ให้แตกบรรทัดเด็ดขาด */
+    flex-wrap: nowrap !important;
+}
+
+/* ช่อง select + quantity */
+#page-pos #add-to-cart-form .product-quantity-group select,
+#page-pos #add-to-cart-form .product-quantity-group input {
+    flex: 1 1 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    font-size: clamp(0.75rem, 1vw, 0.9em) !important;
+    padding: 0 6px !important;
+    text-align: center !important;
+    height: 38px !important;
+    line-height: normal !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* กำหนดสัดส่วน: 70% + 30% */
+#page-pos #add-to-cart-form .product-quantity-group select {
+    flex: 8.5 !important;
+}
+
+#page-pos #add-to-cart-form .product-quantity-group input {
+    flex: 1.5 !important;
+}
+
+/* === MOBILE === */
 @media (max-width: 768px) {
-        #page-pos #add-to-cart-form .date-time-group input {
-            flex: 1 1 0 !important; /* แบ่งพื้นที่เท่ากัน 50/50 และย่อขยายได้ */
-            width: 0 !important; /* แก้บั๊ก Flexbox ไม่ยอมหดในบาง Browser */
-            min-width: 0 !important; /* อนุญาตให้หดเล็กสุดได้ */
-            font-size: clamp(0.75rem, 1vw, 0.9em) !important; /* ปรับขนาดตัวอักษร */
-            padding: 0 5px !important; /* ระยะห่างภายใน */
-            text-align: center !important; /* จัดตัวหนังสือกลางช่อง */
-            
-            /* บังคับโครงสร้างกล่อง */
-            height: 36px !important;  /* บังคับความสูงให้เท่ากันเป๊ะ */
-            line-height: normal !important;
-            margin: 0 !important; /* ลบระยะห่างภายนอกที่ไม่จำเป็น */
-            box-sizing: border-box !important; /* รวมขอบในความกว้าง/สูง */
-        }
+    #page-pos #add-to-cart-form .product-quantity-group {
+        gap: 2px !important;
+    }
+
+    #page-pos #add-to-cart-form .product-quantity-group select,
+    #page-pos #add-to-cart-form .product-quantity-group input {
+        height: 36px !important;
+        font-size: clamp(0.75rem, 1.5vw, 0.85em) !important;
+    }
+}
+/* === ปรับแต่งปุ่ม ตกลง ในช่องสแกนบาร์โค้ด === */
+#scan-barcode-form button {
+    background-color: #007bff !important; /* สีฟ้าสดใส */
+    color: white !important;              /* ตัวหนังสือสีขาว */
+    border: 1px solid #0056b3;            /* เส้นขอบสีฟ้าเข้มเพื่อให้ดูคมชัด */
+    border-radius: 6px;                   /* ขอบมนเล็กน้อย */
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* เงาเล็กน้อยให้ปุ่มดูลอย */
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#scan-barcode-form button:hover {
+    background-color: #0056b3 !important; /* สีฟ้าเข้มขึ้นเมื่อเอาเมาส์ชี้ */
+    transform: translateY(-1px);          /* ขยับขึ้นเล็กน้อยตอนชี้ */
+}
+
+#scan-barcode-form button:active {
+    transform: translateY(0);             /* ขยับกลับที่เดิมตอนกด */
+}
