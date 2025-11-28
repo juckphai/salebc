@@ -1,7 +1,7 @@
 // service-worker.js - ปรับปรุงเงื่อนไข Fetch สำหรับ CDN
 // --- 1. เปลี่ยนชื่อ Cache เป็นสองเวอร์ชัน ---
-const staticCacheName = 'site-static-v949'; 
-const dynamicCacheName = 'site-dynamic-v949'; 
+const staticCacheName = 'site-static-v939'; 
+const dynamicCacheName = 'site-dynamic-v939'; 
 
 // 2. ไฟล์ที่ต้องการ cache (Assets)
 const assets = [

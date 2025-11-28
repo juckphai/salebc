@@ -2798,13 +2798,15 @@ renderPos(payload = null) {
                 },
 
                 // --- PRODUCT MANAGEMENT ---
-                renderProductTable() {
+               renderProductTable() {
                     const tbody = document.querySelector('#product-table tbody');
                     if (!tbody) return;
                     tbody.innerHTML = '';
                     this.data.products.forEach(p => {
                         const tr = document.createElement('tr');
+                        // [ปรับปรุง] เพิ่มคอลัมน์รหัสบาร์โค้ด
                         tr.innerHTML = `<td data-label="ชื่อสินค้า">${p.name}</td>
+                                        <td data-label="บาร์โค้ด">${p.barcode || '-'}</td> 
                                         <td data-label="สต็อก">${this.formatNumberSmart(p.stock)}</td>
                                         <td data-label="หน่วย">${p.unit}</td>
                                         <td data-label="จัดการ">
@@ -2816,6 +2818,7 @@ renderPos(payload = null) {
                         tbody.appendChild(tr);
                     });
                 },
+
                                saveProduct(e) {
                     e.preventDefault();
                     const idValue = document.getElementById('product-id').value;
@@ -3632,7 +3635,7 @@ fillPages(){
         </div>`;
 
     // หน้าจัดการสินค้า
-    document.getElementById('page-products').innerHTML = `
+       document.getElementById('page-products').innerHTML = `
         <h2>จัดการสินค้า</h2> 
         <p style="text-align:center; margin-top:-10px; margin-bottom:15px; font-size:0.9em;">ในหน้านี้ใช้สำหรับสร้างและแก้ไข <b>ชื่อสินค้า</b> และ <b>หน่วยนับ</b> เท่านั้น<br>ราคาทุนและราคาขาย จะถูกกำหนดในหน้า "นำเข้าสินค้า"</p>
         <form id="product-form"> 
@@ -3653,7 +3656,15 @@ fillPages(){
         </form> 
         <div class="table-container">
             <table id="product-table"> 
-                <thead><tr><th>ชื่อสินค้า</th><th>สต็อก</th><th>หน่วย</th><th>จัดการ</th></tr></thead> 
+                <thead>
+                    <tr>
+                        <th>ชื่อสินค้า</th>
+                        <th>รหัสบาร์โค้ด</th> 
+                        <th>สต็อก</th>
+                        <th>หน่วย</th>
+                        <th>จัดการ</th>
+                    </tr>
+                </thead> 
                 <tbody></tbody> 
             </table>
         </div>`;
